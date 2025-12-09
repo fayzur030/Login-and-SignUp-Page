@@ -1,11 +1,23 @@
-import { LoginForm } from "../components/login-form";
-
+import { LoginForm } from '../components/login-form'
+import loginImage from '../../assets/login.png'
+import Image from 'next/image'
 
 export default function LoginPage() {
   return (
-    <div className='bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10'>
-      <div className='w-full max-w-sm md:max-w-4xl'>
-        <LoginForm />
+    <div className='grid min-h-svh lg:grid-cols-2'>
+      <div className='bg-muted relative hidden lg:block'>
+        <Image
+          src={loginImage}
+          alt='Image'
+          className='absolute inset-0 h-full w-full object-cover'
+        />
+      </div>
+      <div className='flex flex-col gap-4 p-6 md:p-10'>
+        <div className='flex flex-1 items-center justify-center'>
+          <div className='w-full max-w-md'>
+            <LoginForm />
+          </div>
+        </div>
       </div>
     </div>
   )
