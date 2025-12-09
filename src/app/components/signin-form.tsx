@@ -20,7 +20,7 @@ import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-export function LoginForm({
+export function SignInForm({
   className,
   ...props
 }: React.ComponentProps<'form'>) {
@@ -46,16 +46,34 @@ export function LoginForm({
     <form className={cn('flex flex-col gap-6', className)} {...props}>
       <FieldGroup>
         <div className=' text-left'>
-          <h1 className='text-2xl md:text-5xl font-bold mb-3'>Login</h1>
+          <h1 className='text-2xl md:text-5xl font-bold mb-3'>Sign in</h1>
           <p className='text-muted-foreground text-[#818181] text-sm text-balance'>
-            Login your account in a seconds
+            Create your account in a seconds
           </p>
         </div>
         <Field>
           <Input
+            id='name'
+            type='name'
+            placeholder='First Name:'
+            required
+            className='border border-gray-300 focus:border-blue-100 focus:ring-0 focus:outline-none'
+          />
+        </Field>
+        <Field>
+          <Input
+            id='name'
+            type='name'
+            placeholder='Last Name::'
+            required
+            className='border border-gray-300 focus:border-blue-100 focus:ring-0 focus:outline-none'
+          />
+        </Field>
+        <Field>
+          <Input
             id='email'
             type='email'
-            placeholder='Email Address'
+            placeholder='Email Address:'
             required
             className='border border-gray-300 focus:border-blue-100 focus:ring-0 focus:outline-none'
           />
@@ -64,42 +82,37 @@ export function LoginForm({
           <Input
             id='password'
             type='password'
-            placeholder='Password'
+            placeholder='Create Password:'
             required
             className='border border-gray-300 focus:border-blue-100 focus:ring-0 focus:outline-none'
           />
         </Field>
         {/* Checkbox */}
-        <div className='flex justify-between'>
-          <div className='flex items-center gap-3'>
-            <Checkbox.Root
-              id='keep-logged-in'
-              className='w-6 h-6 rounded bg-[#7754F6] border border-gray-300 flex items-center justify-center focus:ring-2 focus:ring-blue-500'
-            >
-              <Checkbox.Indicator>
-                <Check className='w-5 h-5 text-white' />
-              </Checkbox.Indicator>
-            </Checkbox.Root>
-            <Label
-              htmlFor='keep-logged-in'
-              className=' text-sm md:text-base text-[#818181] font-normal '
-            >
-              Keep me logged in
-            </Label>
-          </div>
-          <div>
-            <a className='text-[#7754F6] font-normal text-sm md:text-base underline cursor-pointer hover:text-[#7794F6] pl-4'>
-              Forget password?
-            </a>
-          </div>
+
+        <div className='flex items-center gap-3'>
+          <Checkbox.Root
+            id='keep-logged-in'
+            className='w-6 h-6 rounded bg-[#7754F6] border border-gray-300 flex items-center justify-center focus:ring-2 focus:ring-blue-500'
+          >
+            <Checkbox.Indicator>
+              <Check className='w-5 h-5 text-white' />
+            </Checkbox.Indicator>
+          </Checkbox.Root>
+          <Label
+            htmlFor='keep-logged-in'
+            className=' text-sm md:text-base text-[#818181] font-normal '
+          >
+            I agree to the terms and privacy policy
+          </Label>
         </div>
+
         <Field className='bg-[#7754F6] text-white rounded-lg'>
-          <Button type='submit'>Login</Button>
+          <Button type='submit'>Create an account</Button>
         </Field>
         <FieldDescription className='text-start text-[#818181] text-sm md:text-base font-medium'>
-          Don&apos;t have an account? {''}
-          <Link href='/sign-in' className='text-[#7754F6] '>
-            Sign up
+          Already a member? {''}
+          <Link href='login' className='text-[#7754F6] '>
+            Login
           </Link>
         </FieldDescription>
         <div className='flex items-center gap-3 my-2'>
